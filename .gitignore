@@ -1,0 +1,52 @@
+# Virtual environment
+venv/
+env/
+.venv/
+
+# ALP-4.3 DMD drivers and SDK
+ALP-4.3/
+Runtime/
+setup/
+Development/
+Applications/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated output files (images, data)
+*.png
+*.bmp
+*.npy
+*.npz
+hologram_cache/
+results/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# Executables and installers
+*.exe
+*.msi
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled LaTeX files
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz

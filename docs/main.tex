@@ -1,0 +1,550 @@
+\documentclass[11pt, twoside]{article}
+
+% --- Language & Encoding ---
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+
+% --- Page Layout & Geometry ---
+\usepackage[a4paper, 
+            twoside,
+            inner=3cm,      % Inside margin (binding)
+            outer=4.5cm,    % Outside margin
+            top=4cm,        % Top margin
+            bottom=3cm,     % Bottom margin
+            includeheadfoot,
+            headheight=14pt,
+            footskip=1.5cm
+            ]{geometry}
+
+% --- Fonts & Typography ---
+% Using carlito (Calibri clone) for pdfLaTeX compatibility
+\usepackage{carlito}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[expansion=false]{microtype} % Improves spacing and justification
+\usepackage{setspace}
+\setstretch{1.4}       % 14 pt line spacing
+\usepackage{ragged2e}  % For justified text with better hyphenation
+
+% --- Math & Physics Packages ---
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{siunitx}
+
+% --- Graphics & Tables ---
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}  % If you need subfigures
+\usepackage{float}
+\usepackage{array}
+
+% --- Headers & Footers ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}  % Clear all header/footer settings
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- References ---
+\usepackage[numbers, square, sort&compress]{natbib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=blue, 
+    citecolor=blue, 
+    urlcolor=blue,
+    pdftitle={Wavefront Shaping Through Dynamic Complex Media},
+    pdfauthor={Jose Alan Barraza Villaverde}
+}
+
+% --- Custom Heading Styles ---
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+% Level 1: 14 pt, Bold, Centered, 6 pt before, 12 pt after, Numbered, Page break before, Odd page
+\titleformat{\section}
+  {\fontsize{14}{16}\bfseries\centering}
+  {\thesection}
+  {1em}
+  {}
+  [\vspace{12pt}]
+\titlespacing{\section}{0pt}{6pt}{12pt}
+
+% Level 2: 12 pt, Bold, Left aligned, 10 pt before, 4 pt after, Numbered
+\titleformat{\subsection}
+  {\fontsize{12}{14}\bfseries\raggedright}
+  {\thesubsection}
+  {1em}
+  {}
+  [\vspace{4pt}]
+\titlespacing{\subsection}{0pt}{10pt}{4pt}
+
+% Level 3: 11 pt, Bold, Left aligned, 6 pt before, 2 pt after, Numbered
+\titleformat{\subsubsection}
+  {\fontsize{11}{13}\bfseries\raggedright}
+  {\thesubsubsection}
+  {1em}
+  {}
+  [\vspace{2pt}]
+\titlespacing{\subsubsection}{0pt}{6pt}{2pt}
+
+% --- Table of Contents Styling ---
+\titlecontents{section}[0pt]{\fontsize{11}{13}\normalfont}
+  {\thecontentslabel.\quad}{}
+  {\titlerule*[1em]{.}\contentspage}
+\titlecontents{subsection}[0.35cm]{\fontsize{11}{13}\normalfont}
+  {\thecontentslabel.\quad}{}
+  {\titlerule*[1em]{.}\contentspage}
+\titlecontents{subsubsection}[0.85cm]{\fontsize{11}{13}\normalfont}
+  {\thecontentslabel.\quad}{}
+  {\titlerule*[1em]{.}\contentspage}
+
+% --- Abstract Styling ---
+\usepackage{abstract}
+\renewcommand{\abstractname}{}
+\renewcommand{\absnamepos}{empty}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+% --- Quote Styling ---
+\usepackage{quoting}
+\quotingsetup{font={size=10pt}, leftmargin=3pt, rightmargin=3pt}
+
+% --- Document Metadata ---
+\title{Master intelligent Photonics for Security Reliability Sustainability and Safety (iPSRS)}
+\author{Jose Alan Barraza Villaverde}
+\date{\today}
+
+% -------------------------------------------------------------------------
+\begin{document}
+
+% --- Page Numbering: Roman style for front matter ---
+\pagenumbering{roman}
+
+% --- Title Page ---
+\begin{titlepage}
+\newgeometry{left=2.5cm, right=2.5cm, top=1.5cm, bottom=2.5cm}  % Adjusted margins for cover page only
+
+\centering
+\vspace*{0cm}
+
+% --- Small EU Logo in Top Left Corner ---
+\noindent
+\begin{minipage}{1\textwidth}
+    \raggedright
+    \includegraphics[height=4cm]{pictures/EU_logo.png}
+\end{minipage}%
+\vspace{0.5cm}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[height=2.5cm]{pictures/ipsrs_logo.png}
+\end{minipage}
+
+\vspace{1.5cm}
+
+% --- Main Title ---
+% Using \sloppy to prevent overfull hbox on long titles
+{\sloppy\fontsize{14}{16}\bfseries Master Intelligent Photonics for Security Reliability Sustainability and Safety (iPSRS)\par}
+
+\vspace{0.5cm}
+
+% --- 4 Logos in a Row ---
+\begin{center}
+    \begin{minipage}{0.2\textwidth}
+        \centering
+        \includegraphics[height=1.5cm]{pictures/UJM_logo.png}
+    \end{minipage}%
+    \begin{minipage}{0.2\textwidth}
+        \centering
+        \includegraphics[height=1.5cm]{pictures/uef_logo.jpg}
+    \end{minipage}%
+    \begin{minipage}{0.2\textwidth}
+        \centering
+        \includegraphics[height=1.5cm]{pictures/logo_upec.png}
+    \end{minipage}%
+    \begin{minipage}{0.2\textwidth}
+        \centering
+        \includegraphics[height=1.5cm]{pictures/VU_logo.png}
+    \end{minipage}
+\end{center}
+
+\vspace{1cm}
+
+{\large \textbf{Wavefront Shaping Through Dynamic Complex Media}\par}
+\vspace{0.15cm}
+{\large Summer Internship Report \par}
+\vspace{0.5cm}
+
+{\large \textbf{Presented By}\par}
+\vspace{0.15cm}
+{\large Jos\'e Alan Barraza Villaverde \par}
+\vspace{0.5cm}
+
+{\large \textbf{Defended At}\par}
+\vspace{0.15cm}
+{\large Universit\'e Jean Monnet \par}
+\vspace{0.5cm}
+
+\vspace{1cm}
+
+{\small August 25th of 2026 \par}
+
+\begin{flushleft}
+  \textbf{Academic \& Host Supervisors:} Rodrigo Gutierrez Cuevas, Pierre Verlot \par
+  \textbf{Jury Committee:} iPSRS Coordinator, Nathalie Destouches, Universit\'e Jean Monnet \par
+
+\end{flushleft}
+\end{titlepage}
+
+% --- Restore original margins for the rest of the document ---
+\restoregeometry
+
+% --- Abstract Page ---
+\section*{\fontsize{14}{16}\bfseries\centering Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+% Removed negative vspace to fix Underfull vbox
+\begin{center}%
+\parbox{\textwidth}{%
+\fontsize{11}{13}\normalfont
+\justifying % Use justifying from ragged2e for better spacing
+Complex media such as scattering tissue or multimode fibers, scramble the light propagating through them, producing complicated and unpredictable interference pattern known as "Speckle Pattern" at the output. Wavefront shaping techniques give us the ability to focus, manipulate and image light through highly scattering, complex media. The objective of this work was to manipulate light using Digital Micro-mirror Devices (DMD) through a dynamic complex media, which was implemented using a multiplane configuration with a high-speed Phase-only Light Modulator (PLM). In this work a light beam was focused using feedback loop optimization to manipulate the phase of segments of the DMD in order to maximize the intensity of a speckle grain produced by the dynamic complex media.
+}
+\end{center}
+
+% --- Table of Contents ---
+\section*{\fontsize{14}{16}\bfseries\centering Table of Contents}
+\addcontentsline{toc}{section}{Table of Contents}
+% Removed negative vspace to fix Underfull vbox
+\renewcommand{\contentsname}{}
+\tableofcontents
+
+\newpage
+
+% --- Main Content: Arabic page numbering starts here ---
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% --- Set running headers ---
+\fancyhead[RO]{\fontsize{8}{10}\normalfont Wavefront shaping through dynamic complex media}
+\fancyhead[LE]{\fontsize{8}{10}\normalfont Wavefront shaping through dynamic complex media}
+\fancyfoot[C]{\thepage}
+
+% --- Chapter 1 (First page should be odd page) ---
+\cleardoublepage
+
+\section{Introduction}
+\label{sec:introduction}
+
+When light propagates through a high-scattering medium~-- such as biological tissue, a piece of plastic, or a multimode optical fiber~-- the multiple and random scattering events alter the phase and direction of the light, and the light emerges as a random interference speckle field, rather than a collimated beam or sharp image. This result is one of the obstacles when using light through dynamic complex media, and overcoming it matters for applications ranging from living deep-tissue dynamic imaging, optical communications under vibrating circumstances, or flowing media~\cite{vellekoop2007focusing,mididoddi2025threading}.
+
+For a static medium, every scattering path preserves a defined amplitude and phase relationship between the input and output beam. Wavefront shaping is about controlling the input field to compensate for the scattering and recover a focus or image at the output~\cite{vellekoop2007focusing}. Two main strategies exist to achieve this. The first is to measure the transmission matrix (TM) of the medium, which fully characterizes its input--output relationship and allows deterministic focusing or imaging at any target point once known~\cite{popoff2010measuring}. The second is a feedback-loop optimization, in which the input wavefront is iteratively adjusted while monitoring the intensity at a target point using a camera, without ever explicitly measuring the TM~\cite{vellekoop2007focusing}.
+
+Both methods have been used for a static medium. In many situations the medium itself changes over time~-- some examples are, mechanical vibration, blood flow, turbid liquid or living-tissue ~-- so that its TM varies and cannot be measured once and then be used indefinitely. Feedback-loop optimization can still be used in this dynamic case, but the resulting focus only remains stable in time~-- rather than continuously drifting~-- under one of two conditions: either the optimization is continuously re-run to track the medium in real time, or the medium's dynamics are periodic, in which case the focus settles into a stable compromise across the different states it cycles through. This work addresses the latter case: focusing light through a dynamic complex medium with periodic evolution using feedback-loop optimization, with the medium made to alternate periodically between a finite number of random states in order to maintain a stable speckle pattern with reduced contrast.
+
+This report is organized as follows. Section~\ref{sec:theory} introduces the theoretical framework of feedback-loop wavefront shaping, first for static media (Sec.~\ref{subsec:static}) and then for dynamic media (Sec.~\ref{subsec:dynamic}). Section~\ref{sec:experiment} describes the experimental implementation, including the dynamic complex medium emulated with the PLM (Sec.~\ref{subsec:PLM_calibration}), DMD-based wavefront shaping (Sec.~\ref{subsec:dmd}), and the feedback-loop optimization setup (Sec.~\ref{subsec:feedback_setup}). Section~\ref{sec:results} presents and discusses the focusing results obtained for static and dynamic media.
+
+\section{Focusing with Feedback-loop Optimization}
+\label{sec:theory}
+
+\subsection{The Principle for Static Media}
+\label{subsec:static}
+
+Even without directly measuring it, propagation through a static complex medium can be described by a transmission matrix $T_{lj}$ relating the input field $E_l^{(in)}$ to the output field $E_l^{(out)}$, as in Eq.~\eqref{eq:transmission_matrix}. Following the pixelated structure of the modulator used to shape the input field and of the camera used to record the output, it is natural to describe both fields in a pixel basis: a set of independent pixels, each with its own well-defined amplitude and phase, so that $l$ and $j$ index one input and one output pixel, respectively.
+
+\begin{equation}
+    E_l^{(out)} = \sum_{j} T_{lj} E_l^{(in)}
+    \label{eq:transmission_matrix}
+\end{equation}
+
+The transmission matrix formalism is not restricted to scattering media, it has also been used successfully to optimize optomechanical coupling in nano-optomechanical sensors by shaping the input wavefront~\cite{tavernarakis2025wavefront}.
+
+In this basis, the input field over $N$ pixels is written as the $N$-dimensional
+vector in Eq.~\eqref{eq:incident_beams}, with $E_l^{(in)} = A_l e^{i\phi_l}$.
+
+\begin{equation}
+    \overline{E}^{in} = \left( E_1, E_2, ..., E_N \right)
+    \label{eq:incident_beams}
+\end{equation}
+
+In this work, only the phase $\phi_l$ of each macro-pixel is controlled experimentally, while the amplitude $A_l$ is left fixed. This is done for simplicity; in principle, controlling the amplitude in addition to the phase would allow for an even better focus.
+
+To focus light onto a target position, a Region of Interest (ROI) is defined at the output, chosen smaller than a single speckle grain so that it can be treated as a single output mode $k$ of the transmission matrix (i.e.\ $l = k$ in Eq.~\eqref{eq:transmission_matrix}). Focusing then amounts to finding, for every macro-pixel $l$, the phase $\phi_l$ that maximizes the intensity at the ROI. Experimentally, this optimal phase is found by looping through the input macro-pixels one at a time, scanning the phase $\phi_l$ from $0$ to $2\pi$ for each, and keeping the value that maximizes the intensity measured at the ROI. This results in a customized wavefront shape that localizes the light at point $k$, as illustrated in Fig.~\ref{fig:mosk_experiment}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/Mosk_experiment.png}
+    \caption{ (a) A planewave is focused on a disordered medium, and a speckle pattern is transmitted. (b) The wavefront of the incident light
+    is shaped so that scattering makes the light focus at a predefined target. Figure adapted from Vellekoop and Mosk~\cite{vellekoop2007focusing}.}
+    \label{fig:mosk_experiment}
+\end{figure}
+
+Because each macro-pixel is optimized independently to maximize the intensity at output mode $k$, this procedure is equivalent to aligning the input field $\overline{E}^{in}$ with $\overline{t}^{(k)}$, the row of the transmission matrix corresponding to output mode $k$, so that the output field at pixel $k$~-- a complex scalar, not the full output vector $\overline{E}^{(out)}$~-- can be written as the dot product.
+
+\begin{equation}
+    E_k^{(out)} = \overline{t}_{(k)} \cdot \overline{E}^{(in)} = e^{i \phi_{diff}} |\overline{t}_{(k)}| |\overline{E}^{(in)}| \cos (\theta)
+    \label{eq:correlation}
+\end{equation}
+
+This expression quantifies the correlation between $\overline{t}_{(k)}$ and $\overline{E}^{(in)}$ through the angle $\theta$. The key point is that once the input field has been fully optimized, $\overline{E}^{(in)}$ becomes aligned with $\overline{t}_{(k)}$, i.e.\ $\theta = 0$, and the output intensity at mode $k$ is maximized. This picture is what makes it possible to understand the behavior of multiple complex media varying over time, treated next.
+
+\subsection{Focusing in Dynamic Media}
+\label{subsec:dynamic}
+
+Consider a complex medium that alternates periodically between $n$ distinct states. Each state $i$ is described by its own transmission matrix $T^{(i)}_{lj}$, and we denote by $\overline{t}^{(i)}_k$ \emph{the $k$-th row of $T^{(i)}$}, i.e.\ the row relating the input field to output mode $k$ when the medium is in state $i$. Because the medium changes between states, a single static solution optimized for one state (Sec.~\ref{subsec:static}) does not, in general, remain optimal for the others. However, since the output is recorded over a time long compared to the medium's alternation period, the total intensity at $k$ is the sum of the intensities produced by each of the $n$ states:
+
+\begin{equation}
+\begin{split}
+    I_k &= I^{(1)}_k + I^{(2)}_k + \dots + I^{(n)}_k \\
+        &= |\overline{t}^{(1)}_k \cdot \overline{E}^{(\text{in})}|^2 + |\overline{t}^{(2)}_k \cdot \overline{E}^{(\text{in})}|^2 + \dots + |\overline{t}^{(n)}_k \cdot \overline{E}^{(\text{in})}|^2 \\
+        &= (\overline{E}^{(\text{in})})^\dagger \left( \overline{t}^{(1)*}_k \otimes \overline{t}^{(1)}_k + \overline{t}^{(2)*}_k \otimes \overline{t}^{(2)}_k + \dots + \overline{t}^{(n)*}_k \otimes \overline{t}^{(n)}_k \right) \overline{E}^{(\text{in})}
+\end{split}
+\label{eq:DCM_intensity_derivation}
+\end{equation}
+
+giving the final expression for the intensity of a dynamic complex medium focused at point $k$:
+
+\begin{equation}
+    I_k = (\overline{E}^{(\text{in})})^\dagger \, H_k \, \overline{E}^{(\text{in})}, \qquad
+    H_k \equiv \sum_{i=1}^{n} \overline{t}^{(i)*}_k \otimes \overline{t}^{(i)}_k
+    \label{eq:DCM_intensity}
+\end{equation}
+
+in the dynamic case, one is no longer aligning the input to a single row corresponding to one output mode, $H_k$ is \emph{not} the transmission matrix of a single medium; rather, it is a Hermitian matrix constructed from the rows $\overline{t}^{(i)}_k$ of the $n$ alternating transmission matrices. Because $H_k$ is Hermitian, the input field $\overline{E}^{(\text{in})}$ that maximizes $I_k$ is given by the eigenvector of $H_k$ associated with its largest eigenvalue (in absolute value). This optimal input field does not, in general, perfectly align with any single $\overline{t}^{(i)}_k$, but instead represents a compromise across all $n$ medium states.
+
+\section{Experimental Implementation}
+\label{sec:experiment}
+
+\subsection{The Dynamic Complex Medium}
+\label{subsec:PLM_calibration}
+
+For this experiment, a Texas Instruments DLP6750Q1EVM 0.67'' Phase Light Modulator (PLM) was used to emulate the dynamic complex medium~\cite{tiplmguide, doamaralrocha2024fast}. The PLM is composed of an array of micromirrors of $1358 \times 800$ with a pixel pitch of \SI{10.8}{\micro\meter}, operating in a piston-type mode that allows each micromirror to move into 16 discrete displacement states, each corresponding to a phase delay for the reflected field. The mirror displacement, and therefore the phase span, is set by the external mirror-bias voltage, giving access to the full $0$--$2\pi$ phase range over the 16 states. The device specifications are summarized in Table~\ref{tab:plm_specs}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Main specifications of the 0.67'' visible PLM~\cite{tiplmguide}.}
+    \label{tab:plm_specs}
+    \begin{tabular}{ll}
+        \toprule
+        Parameter & Value \\
+        \midrule
+        Array size        & $1358 \times 800$ mirrors \\
+        Mirror pitch      & \SI{10.8}{\micro\meter} $\times$ \SI{10.8}{\micro\meter} \\
+        Phase states      & 16 \\
+        State linearity   & 0.93 \\
+        0th order efficiency & $\sim 70\,\%$ \\
+        Wavelength range  & \SIrange{405}{640}{\nano\meter} \\
+        Switching speed   & $< \SI{50}{\micro\second}$ \\
+        Max. hologram rate & \SI{1.44}{\kilo\hertz} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The mirror bias was calibrated so the 16 states span covered the full $0$ --$2\pi$ phase range for the working wavelength of \SI{632.8}{\nano\meter}. Following the procedure recommended by the manufacturer~\cite{tiplmguide}, the bias was initially set to a safe value of $\sim\SI{4}{\volt}$, and a computer generated hologram producing a series of rings centered on the native diffraction orders was displayed on the PLM. The voltage was varied until reaching the minimum intensity at the 0th diffraction order. The optimal bias voltage for this experiment was at \SI{1.21}{\volt}.
+
+To measure the dephasing value of each of the 16 states of the PLM the device was positioned as a mirror for a Twyman-Green Interferometer as shown in Figure~\ref{fig:phase_calibration}. The first horizontal-half of the PLM surface was set to state 0 and the second horizontal half is alternated across the 16 states in order to measure the dephase on the interference fringes observed in the camera. All of the code that was used to learn how to operate the PLM controller and the calibration of the PLM can be found in the following GitHub repositories~\cite{barraza2026plmcontroller,structuredlightlab2026plmctrl}.
+
+\begin{figure}[htbp]
+    \centering
+    % Left Sub-figure
+    \subcaptionbox{Phase Calibration Setup\label{fig:phase_calibration}}[0.45\linewidth]{%
+        \includegraphics[width=\linewidth]{pictures/phase_calibration.png}%
+    }\hfill
+    % Right Sub-figure
+    \subcaptionbox{Dephase Pattern Measured\label{fig:second_image}}[0.45\linewidth]{%
+        \includegraphics[width=\linewidth]{pictures/phase_calibration_example.png}%
+    }
+    \caption{Overall caption for both images. The left shows the Twyman-Green interferometer adapted from Rocha~\cite{doamaralrocha2024fast}, and the right shows an interference pattern with dephasing on the right side of the image obtained with the setup.}
+    \label{fig:combined_calibration}
+\end{figure}
+
+The obtained dephase values for 16 states using the setup shown in~\ref{fig:combined_calibration} are: 
+
+\begin{figure}[htbp]
+    \centering
+    % --- Left Side: Image ---
+    \begin{minipage}[c]{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{pictures/dephase_values.png}
+        \caption{Schematic of the Twyman-Green interferometer for image plane calibration. Figure adapted from Jose. A. Rocha~\cite{doamaralrocha2024fast}.}
+        \label{fig:dephase_values}
+    \end{minipage}%
+    \hfill
+    % --- Right Side: Table (Split into 2 columns) ---
+    \begin{minipage}[c]{0.50\linewidth}
+        \centering
+        \captionof{table}{Dephase values (in radians) corresponding to optimization levels.}
+        \label{tab:dephase_levels}
+        \small
+        \renewcommand{\arraystretch}{0.9}
+        \begin{tabular}{cccc}
+            \toprule
+            \textbf{Level} & \textbf{Dephase ($rad$)} & \textbf{Level} & \textbf{Dephase ($rad$)} \\
+            \midrule
+            0  & 0.1202 & 2  & 2.2028 \\
+            7  & 1.2588 & 14 & 2.7937 \\
+            15 & 1.2655 & 6  & 2.8953 \\
+            11 & 1.2862 & 10 & 3.1416 \\
+            13 & 1.3662 & 1  & 3.5218 \\
+            4  & 1.5045 & 12 & 4.1534 \\
+            5  & 1.5218 & 3  & 4.5425 \\
+            9  & 1.7987 & 8  & 5.4523 \\
+            \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{figure}
+
+After calibrating the mirror bias and phase states, the PLM switching speed was characterized by displaying two alternating phase-ramp holograms that steered the beam onto and off of a photodetector. The detector recorded 700 intensity signal pulses per second, confirming an effective hologram display rate of \SI{1.4}{\kilo\hertz}.
+
+
+\subsection{Wavefront Shaping with a DMD}
+\label{subsec:dmd}
+
+For this experiment, a ViALUX ALP-4.3 SuperSpeed V-module digital micromirror device (DMD) was used to shape the input wavefront~\cite{vialux2023alp}. The DMD is composed of an array of $2560 \times 1600$ micromirrors with a pixel pitch of \SI{7.56}{\micro\meter}, each of which can be independently switched between two binary states (on/off). Since the device modulates only the amplitude of the reflected field, it cannot directly imprint a continuous phase or amplitude value. To overcome this limitation, the desired complex field is encoded into binary patterns using off-axis Lee holography~\cite{gutierrezcuevas2024binary}. In this work, eight discrete phase levels were synthesized per macro-pixel by spatially discretizing the micromirror array into superpixels, where the local duty cycle and position of the binary grating encode the amplitude and phase, respectively~\cite{gutierrezcuevas2024binary}.
+
+Because the Lee hologram generates multiple diffraction orders, a $4f$ spatial-filtering system is placed downstream of the DMD to isolate the first diffraction order that carries the encoded complex field~\cite{gutierrezcuevas2024binary}. An aperture at the Fourier plane blocks the zeroth and higher orders, ensuring that only the shaped wavefront propagates toward the complex medium. This optical filtering, combined with the binary encoding, reduces the effective number of independent degrees of freedom available for wavefront shaping but enables high-speed complex field modulation that would otherwise require slower phase-only spatial light modulators~\cite{mosk2012controlling, gigan2022roadmap}. The device specifications are summarized in Table~\ref{tab:dmd_specs}.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Main specifications of the DMD driven by the ALP-4.3 controller~\cite{vialux2023alp}.}
+    \label{tab:dmd_specs}
+    \begin{tabular}{ll}
+        \toprule
+        Parameter & Value \\
+        \midrule
+        Array size             & $2560 \times 1600$ mirrors \\
+        Mirror pitch           & \SI{7.56}{\micro\meter} \\
+        Micromirror states     & 2 (binary, $\pm 12^{\circ}$ tilt) \\
+        Fill factor            & $\sim 92\,\%$ \\
+        Mirror reflectivity    & $\sim 88\,\%$ \\
+        Window transmittance   & $\sim 95\,\%$--$97\,\%$ \\
+        Wavelength range       & \SIrange{400}{700}{\nano\meter} \\
+        Switching speed        & $\sim \SI{5}{\micro\second}$ \\
+        Max. 1-bit pattern rate & $\sim \SI{9.5}{\kilo\hertz}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Setting up the Feedback-loop Optimization}
+\label{subsec:feedback_setup}
+
+As shown in Fig.~\ref{fig:Feedback-loop}, the experimental setup employs a \SI{632.8}{\nano\meter} HeNe laser whose beam is shaped by the DMD and relayed via a 4f system onto the PLM serving as the dynamic complex medium. The output speckle pattern is imaged onto a Basler camera to provide feedback for the optimization algorithm.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/feed_back_loop_setup.png}
+    \caption{Feedback-loop Optimization setup diagram.}
+    \label{fig:Feedback-loop}
+\end{figure}
+
+The optimization implements the sequential phase-stepping algorithm described in Section~\ref{subsec:static}~\cite{vellekoop2007focusing}. The wavefront shaped by the DMD is divided into $N = 144$ independently controllable macro-pixel segments ($12 \times 12$ grid). For each segment $l$, the algorithm tests $N_p = 8$ equally spaced phase values $\phi_k = 2\pi k / N_p$ with $k = 0, \dots, N_p-1$, while all other segments retain their current optimized phase.
+
+Each candidate phase is encoded into a binary orthogonal Lee hologram with carrier frequency $\boldsymbol{\nu} = (1/4, -1/16)$ in pixel units, allowing the DMD to imprint the desired complex field onto the first diffraction order~\cite{gutierrezcuevas2024binary,vialux2023alp}, the code for making this was obtained from the following GitHub repository~\cite{gutierrezcuevas2023pydmdholo}. The eight binary patterns corresponding to the phase steps of a single segment are uploaded as one multi-frame sequence to the ALP-4.3 controller. A rising-edge synchronization pulse on the DMD \texttt{SYNCH\_OUT3} output hardware-triggers the Basler camera, ensuring that each DMD frame transition yields exactly one camera exposure (Fig.~\ref{fig:Feedback-loop}). The feedback signal is the mean intensity over a region of interest (ROI) centered on the target speckle grain $k$, denoted $I_k(\phi_k)$; the mean rather than the peak intensity is used to prevent single hot pixels from dominating the measurement. The optimal phase $\phi_l^{\mathrm{opt}} = \arg\max_k I_k(\phi_k)$ that maximizes the ROI intensity is retained and applied to segment $l$,
+\begin{equation}
+    E_l^{(m+1)} = E_l^{(m)} \exp\!\bigl(i\,\phi_l^{\mathrm{opt}}\bigr),
+    \qquad l \in \text{segment } m,
+    \label{eq:phase_update}
+\end{equation}
+after which the next segment is optimized. In this way, the contributions from all $N$ segments are progressively phase-locked to interfere constructively at the target output mode $k$, as described in Eq.~\eqref{eq:correlation}. To keep the feedback signal within the camera's dynamic range, the exposure time is automatically halved whenever the ROI intensity approaches saturation, with a lower bound of \SI{5}{\milli\second}. The complete sweep over all $N$ segments can be repeated in additional rounds to further refine the solution.
+
+The alternating dynamic complex medium is realized by cycling through a finite set of random phase plates displayed on the PLM, as calibrated in Section~\ref{subsec:PLM_calibration}. Synchronization between the medium and the DMD optimization is enforced at the frame level: the DMD sequence acts as the master clock, with a picture time $t_{\mathrm{pic}} = t_{\mathrm{exp}} + \SI{10}{\milli\second}$ to ensure camera readout completes before the next trigger, and each DMD pattern update triggers one camera frame via the \texttt{SYNCH\_OUT3} signal (Fig.~\ref{fig:Feedback-loop}).
+
+All of the code for the experiment can be found in the following GitHub repository~\cite{barraza2024dmdcontroller}.
+
+\section{Results and Discussion}
+\label{sec:results}
+
+We measured focusing through dynamic complex media for two cases: one oscillating between two independently complex media at an exchange rate of \SI{700}{\hertz}, and another alternating among four complex media at \SI{350}{\hertz} per configuration.
+
+First the light was focused at a square ROI in the camera pixels $x_{1,2} = 916, 864$ and $y_{1,2} = 964, 908$ giving an area of 2112 camera pixels. For the static complex media in order to obtain $\overline{t}_{(k)}$ for each of them the algorithm was applied. After obtaining all of the phase information for the static case feedback loop optimization is applied as well to the dynamic complex media obtaining $\overline{t}_{(k)_{dynamic}}$. The number of macropixels for the optimizations are $N = 144$ each one containing 1089 micromirrors.
+
+The speckle patterns observed for each case are shown in Figs.~\ref{fig:six_images_grid}--\ref{fig:4_medias}. These figures display the static and dynamic complex media before and after being focused for the 2-media and 4-media configurations. As can be observed in the right columns of Figs.~\ref{fig:six_images_grid}--\ref{fig:4_medias}, the focused beam can shift slightly even for the same nominal ROI; this shift depends on the medium and can also change with the size of the ROI used.
+
+For each constituent state $i$, the algorithm of Sec.~\ref{subsec:static} yields an estimate of the transmission-matrix row $\overline{t}^{(i)}_{(k)}$; since only phase modulation is available, the pattern actually applied to the DMD to focus on state $i$ alone is not $\overline{t}^{(i)}_{(k)}$ itself but its complex-conjugated, normalized counterpart, $\overline{E}_{in,k}^{(i)} \equiv (\overline{t}^{(i)}_{(k)})^{*}/|\overline{t}^{(i)}_{(k)}|$, following the alignment condition of Eq.~\eqref{eq:correlation}. Applying the same procedure to the dynamic medium yields, in the same sense, the transmission-matrix-row estimate $\overline{t}_{(k)_{dynamic}}$ and its associated applied phase pattern $\overline{E}_{in,k}^{dynamic}$. These quantities are shown in the same order in Figs.~\ref{fig:phase_holograms_2medias} and~\ref{fig:phase_holograms_4medias} for the 144 macro-pixel phase values, for the 2-media and 4-media configurations respectively. It can be observed in the confusion matrices shown in Figs.~\ref{fig:confusion_matrix_2medias} and~\ref{fig:confusion_matrix_4medias} that $\overline{t}_{(k)_{dynamic}}$ tends to stay at a middle point between all of the $\overline{t}^{(i)}_{(k)}$ solutions, as expected since the algorithm ends up optimizing for all of the states that the complex medium oscillates between, in order to approach a general solution. On the other hand, the dominant eigenvector of the Hermitian matrix obtained from Eq.~\eqref{eq:DCM_intensity}, $\mathbf{v}_{\max}(H_k)$, shows similar behavior, correlating with each $\overline{t}^{(i)}_{(k)}$ but leaning slightly more towards one of the constituent states for both the 2-media and 4-media configurations, where the correlation of $\mathbf{v}_{\max}(H_k)$ with $\overline{t}^{(1)}_{(k)}$ exceeds its correlation with $\overline{t}_{(k)_{dynamic}}$ by $30\%$ for the 2-media case and $19\%$ for the 4-media case.
+
+The correlation between $\overline{t}_{(k)_{dynamic}}$ and $\mathbf{v}_{\max}(H_k)$ tends to be stronger for the four states case with an $81\%$ compared to the $67\%$ obtained for the two states dynamic complex media. The discrepancies can come from experimental inaccuracies such as noise, external vibrations, etc. Furthermore, the optimal solution obtained is not exact since the optimal solution for each static medium was obtained only modulating phase but not amplitude.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/results/2medias/camera_results.png}
+    \caption{Results collected by the camera for a Dynamic Complex Media oscillating between two states, left column corresponds to the speckle patterns made by the static and dynamic complex media right column corresponds to the focused light at the ROI after applying Feedback Loop Optimization.}
+    \label{fig:six_images_grid}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{pictures/results/4medias/camera_results.png}
+    \caption{Results collected by the camera for a Dynamic Complex Media oscillating between four states, left column corresponds to the speckle patterns made by the static and dynamic complex media right column corresponds to the focused light at the ROI after applying Feedback Loop Optimization.}
+    \label{fig:4_medias}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/results/2medias/phase_holograms.png}
+    \caption{Measured transmission-matrix rows $\overline{t}^{(1)}_{(k)}$, $\overline{t}^{(2)}_{(k)}$, $\overline{t}_{(k)_{dynamic}}$ and calculated $\mathbf{v}_{\max}(H_k)$ for the 2-media dynamic complex medium.}
+    \label{fig:phase_holograms_2medias}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/results/2medias/confusion_matrix.png}
+    \caption{Confusion Correlation Matrix for the oscillating dynamic complex media with two states.}
+    \label{fig:confusion_matrix_2medias}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/results/2medias/phase_holograms_dif.png}
+    \caption{Difference of $\overline{t}_{(k)_{dynamic}}$ and $\mathbf{v}_{\max}(H_k)$.}
+    \label{fig:phase_diff_2medias}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/results/4medias/phase_holograms.png}
+    \caption{Transmission-matrix rows $\overline{t}^{(1)}_{(k)}$, $\overline{t}^{(2)}_{(k)}$, $\overline{t}_{(k)_{dynamic}}$ and calculated $\mathbf{v}_{\max}(H_k)$ for the 4-media dynamic complex medium.}
+    \label{fig:phase_holograms_4medias}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/results/4medias/confusion_matrix.png}
+    \caption{Confusion Correlation Matrix for the oscillating dynamic complex media with four states.}
+    \label{fig:confusion_matrix_4medias}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{pictures/results/4medias/phase_difference.png}
+    \caption{Difference of $\overline{t}_{(k)_{dynamic}}$ and $\mathbf{v}_{\max}(H_k)$.}
+    \label{fig:phase_diff_4medias}
+\end{figure}
+
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This work demonstrated feedback-loop optimization for wavefront shaping for focusing light through both static and periodically alternating dynamic complex media. Building on the established framework for static scattering media, in which focusing is achieved by aligning the input field with the transmission-matrix row $\overline{t}_{(k)}$ corresponding to the target output mode, this work extended the framework to a medium that periodically switches between $n$ discrete random states. In this dynamic case, the optimal input field was shown to be the eigenvector of the Hermitian matrix $H_k$, constructed from the transmission-matrix rows of all $n$ constituent states, associated with its largest eigenvalue.
+
+Overall, this work shows that feedback-loop optimization, combined with the Hermitian-eigenvector framework introduced here, is a viable strategy for focusing light through dynamic complex media. Implementing amplitude control alongside phase to approach the idealized enhancement bound discussed in Sec.~\ref{subsec:static} can improve the accuracy of the light focusing alongside increasing the number of segments on the PLM surface.
+
+\clearpage
+
+\thispagestyle{empty}
+\begin{center}
+\small
+\vspace*{\fill}
+This report was prepared with the assistance of artificial intelligence tools,
+which were used to rephrase text, correct grammar, and identify potential mistakes.
+The scientific content, calculations, experimental work, and general supervision
+were performed and overseen by Jose Alan Barraza Villaverde and its supervisor Rodrigo Gutierrez Cuevas.
+\vspace*{\fill}
+\end{center}
+
+\clearpage
+% --- References ---
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

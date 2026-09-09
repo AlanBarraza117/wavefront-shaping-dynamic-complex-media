@@ -110,7 +110,7 @@ With four alternating states, the correlation improves to 81%, as the optimizati
 
 Jose Alan Barraza Villaverde
 
-M2 Internship at Université Jean Monnet, Saint-Étienne, France
+M1 Internship at Université Paris-Saclay, Laboratoire Lumière, Matière et Interfaces (LuMIn), Orsay, France
 
 Master in Intelligent Photonics for Security, Reliability, Sustainability and Safety (iPSRS)
 
